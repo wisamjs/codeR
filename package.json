@@ -1,17 +1,30 @@
 {
   "name": "coder",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "codeR: An Ionic project",
+  "dependencies": {
+    "gulp": "^3.5.6",
+    "gulp-sass": "^1.3.3",
+    "gulp-concat": "^2.2.0",
+    "gulp-minify-css": "^0.3.0",
+    "gulp-rename": "^1.2.0"
+  },
+  "devDependencies": {
+    "bower": "^1.3.3",
+    "gulp-util": "^2.2.14",
+    "shelljs": "^0.3.0"
+  },
+
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postuninstall": "bower install",
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wzaghal/codeR.git"
   },
   "author": "Wisam Zaghal <wisamzaghal@gmail.com> (http://wisam.io/)",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/wzaghal/codeR/issues"
   },
