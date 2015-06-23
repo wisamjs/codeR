@@ -10,14 +10,18 @@ var browserSync = require('browser-sync').create();
 
 var paths = {
   sass: ['./scss/**/*.scss'],
-  css: './src/css/'
+  css: './.tmp/css/'
 };
 
 // Static server
 gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
-            baseDir: "./src/"
+            baseDir: "./src/",
+            routes: {
+              '/bower_components': 'bower_components',
+              '/.tmp': '.tmp'
+            }
         }
     });
 });
