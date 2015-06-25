@@ -6,3 +6,5 @@ platforms/
 plugins/
 bower_components/
 .tmp/
+src/bundle.js
+src/bundle.js.map
