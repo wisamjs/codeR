@@ -1,5 +1,7 @@
 'use strict';
-import '../.tmp/css/ionic.app.css';
+
+import '../scss/fonts.scss';
+import '../bower_components/ionic/scss/ionic.scss';
 
 import mainTemplate from './sections/main.html';
 import candidateTemplate from './sections/candidates/candidates.html';

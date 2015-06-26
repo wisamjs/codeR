@@ -6,9 +6,3 @@ platforms/
 plugins/
 bower_components/
 .tmp/
-src/bundle.js
-src/bundle.js.map
-src/*.woff
-src/*.eot
-src/*.svg
-src/*.ttf

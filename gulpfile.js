@@ -1,12 +1,5 @@
 
 var gulp = require('gulp');
-var gutil = require('gulp-util');
-var bower = require('bower');
-var concat = require('gulp-concat');
-var sass = require('gulp-sass');
-var minifyCss = require('gulp-minify-css');
-var rename = require('gulp-rename');
-var sh = require('shelljs');
 var browserSync = require('browser-sync').create();
 var webpack = require('gulp-webpack');
 
@@ -20,21 +13,6 @@ var paths = {
 };
 
 
-gulp.task('sass', function(done) {
-  gulp.src('./scss/ionic.app.scss')
-    .pipe(sass({
-      errLogToConsole: true
-    }))
-    .pipe(gulp.dest(paths.css))
-    .pipe(minifyCss({
-      keepSpecialComments: 0
-    }))
-    .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest(paths.css))
-    .pipe(browserSync.stream())
-    .on('end', done);
-});
-
 gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
@@ -47,12 +25,18 @@ gulp.task('browser-sync', function() {
     });
 });
 
-gulp.task('dev', ['build', 'browser-sync']);
+gulp.task('dev', ['build', 'browser-sync','watch']);
 
 gulp.task('build',function() {
   return gulp
     .src('client/app/app.js')
     .pipe(webpack(require('./webpack.config')))
-    .pipe(gulp.dest('src'));
+    .pipe(gulp.dest('.tmp'));
+
+});
+
+
+gulp.task('watch', function() {
+  gulp.watch([paths.sass, paths.html], ['build', browserSync.reload]);
 
 });
