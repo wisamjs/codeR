@@ -6,7 +6,7 @@ var webpack = require('gulp-webpack');
 
 
 var paths = {
-  app: ['src/**/*.js'],
+  app: ['src/**/*.js',"!src/bundle.js*"],
   sass: ['./scss/**/*.scss'],
   css: './.tmp/css/',
   html: ['src/**/*.html']
@@ -31,7 +31,7 @@ gulp.task('build',function() {
   return gulp
     .src('client/app/app.js')
     .pipe(webpack(require('./webpack.config')))
-    .pipe(gulp.dest('.tmp'));
+    .pipe(gulp.dest('src'));
 
 });
 

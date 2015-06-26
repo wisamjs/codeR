@@ -1,5 +1,7 @@
 {
-  "parser": "babel-eslint",
+  "ecmaFeatures": {
+    "blockBindings": true
+  },
   "env": {
     "browser": true,
     "node": true,
@@ -17,6 +19,7 @@
     "xit": true,
     "chai": true
   },
+  "parser": "babel-eslint",
   "rules": {
     "no-alert":0,
     "no-debugger":2,
@@ -32,7 +35,6 @@
     "eqeqeq": [2, "smart"],
     "no-use-before-define": 2,
     "no-redeclare": 2,
-    "no-inner-declarations": "both",
     "no-unused-vars": [2, {"vars": "all", "args": "after-used"}],
     "no-floating-decimal": 2,
     "no-spaced-func": 2,
@@ -46,5 +48,17 @@
     "strict": 0,
     "eol-last": 0,
     "semi": 2
+  },
+    "globals": {
+    "angular": true,
+    "moment": true,
+    "R": true,
+    "inject": true,
+    "Q": true,
+    "sinon": true,
+    "getService": true,
+    "expect": true,
+    "xit": true,
+    "chai": true
   }
 }
