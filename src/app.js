@@ -10,16 +10,16 @@ import homeTemplate from './sections/home/home.html';
 angular
   .module('app', ['ionic'])
   .config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/app/home')
+  $urlRouterProvider.otherwise('/app/home');
 
   $stateProvider
     .state('app', {
-      url: "/app",
+      url: '/app',
       abstract: true,
       template: mainTemplate
     })
     .state('app.home', {
-      url: "/home",
+      url: '/home',
       views: {
         'home-tab': {
           template: homeTemplate
@@ -27,11 +27,11 @@ angular
       }
     })
         .state('app.candidates', {
-      url: "/candidates",
+      url: '/candidates',
       views: {
         'home-tab': {
         template: candidateTemplate
       }
       }
-    })
+    });
   });
