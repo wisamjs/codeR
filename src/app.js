@@ -1,30 +1,26 @@
+'use strict';
+import '../.tmp/css/ionic.app.css';
+
+import mainTemplate from './sections/main.html';
+import candidateTemplate from './sections/candidates/candidates.html';
+import homeTemplate from './sections/home/home.html';
+
 angular
   .module('app', ['ionic'])
   .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/app/home')
 
-//   $stateProvider
-//     .state('home', {
-//       url: '/',
-//       templateUrl:'sections/home/home.html'
-//     })
-//     .state('candidates', {
-//       url: '/candidates',
-//       templateUrl: 'sections/candidates/candidates.html'
-//     })
-// })
-
   $stateProvider
     .state('app', {
       url: "/app",
       abstract: true,
-      templateUrl: "sections/main.html"
+      template: mainTemplate
     })
     .state('app.home', {
       url: "/home",
       views: {
         'home-tab': {
-          templateUrl: "sections/home/home.html",
+          template: homeTemplate
         }
       }
     })
@@ -32,8 +28,8 @@ angular
       url: "/candidates",
       views: {
         'home-tab': {
-          templateUrl: "sections/candidates/candidates.html"
-        }
+        template: candidateTemplate
+      }
       }
     })
   });
