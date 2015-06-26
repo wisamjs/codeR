@@ -37,6 +37,6 @@ gulp.task('build',function() {
 
 
 gulp.task('watch', function() {
-  gulp.watch([paths.sass, paths.html], ['build', browserSync.reload]);
+  gulp.watch([paths.app, paths.sass, paths.html], ['build', browserSync.reload]);
 
 });
