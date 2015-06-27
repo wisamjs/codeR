@@ -7,7 +7,7 @@ var webpack = require('gulp-webpack');
 
 var paths = {
   app: ['src/**/*.js',"!src/bundle.js*"],
-  sass: ['./scss/**/*.scss'],
+  sass: ['./scss/**/*.scss','src/**/*.scss'],
   css: './.tmp/css/',
   html: ['src/**/*.html']
 };
