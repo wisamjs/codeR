@@ -19,7 +19,6 @@ let candidateService = ($http) => {
 
     if (!isUsed(num) && !allUsed()) {
       usedIDs.push(num);
-      console.log(usedIDs);
       return num;
     } else if (!allUsed()) {
       return getRandomID();

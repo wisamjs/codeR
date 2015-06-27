@@ -6,10 +6,15 @@ import '../bower_components/ionic/scss/ionic.scss';
 import mainTemplate from './sections/main.html';
 import candidateTemplate from './sections/candidates/candidates.html';
 import homeTemplate from './sections/home/home.html';
-import {userFormModule} from './components/components';
+import {userFormModule, candidateModule} from './components/components';
 import {coreModule} from './core/core';
 angular
-  .module('app', ['ionic', userFormModule.name, coreModule.name])
+  .module('app', [
+    'ionic',
+    userFormModule.name,
+    coreModule.name,
+    candidateModule.name
+    ])
   .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/app/home');
 

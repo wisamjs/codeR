@@ -1,0 +1,26 @@
+<div class="list card">
+
+  <div class="item candidate-main-info">
+    <img class="candidate-main-info-avatar" ng-src="{{candidateController.user.picture}}?{{candidateController.user.index}}">
+    <h2 class="candidate-main-info-name">{{candidateController.user.name}}</h2>
+  </div>
+  <div class="item candidate-skills">
+      <p> <span ng-repeat="skill in candidateController.user.skills track by $index"><span class="candidate-skills-skill">{{skill}}</span> </span></p>
+  </div>
+
+  <div class="item item-body">
+    <img class="full-image" ng-src="{{candidateController.user.picture}}?{{candidateController.user.index}}">
+    <p>{{candidateController.user.about}}
+    </p>
+  </div>
+
+  <div class="item tabs tabs-secondary tabs-icon-left">
+    <a class="tab-item" ng-click="candidateController.addCandidate()">
+      <i class="icon ion-ios-checkmark-outline"></i>
+    </a>
+    <a class="tab-item" ng-click="candidateController.skipCandidate()">
+      <i class="icon ion-ios-close-outline"></i>
+    </a>
+  </div>
+
+</div>
