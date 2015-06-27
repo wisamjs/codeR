@@ -13,8 +13,9 @@
     </label>
     <label class="item item-input item-stacked-label">
       <span class="input-label">Requirements:</span>
-      <input type="text" placeholder="AngularJs Front-end UX Python"
-      ng-model="userFormController.project.requirements">
+      <input class="user-form-label" type="text" placeholder="AngularJs Front-end UX Python"
+      ng-model="userFormController.project.requirements"
+      ng-bind="userFormController.makeLabel()">
     </label>
   </form>
 </div>

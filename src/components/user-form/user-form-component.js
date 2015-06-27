@@ -1,3 +1,4 @@
+import './user-form.scss';
 import {userFormController as controller} from './user-form-controller';
 import template from './user-form.html';
 
@@ -9,7 +10,7 @@ let userFormComponent = function(){
     controllerAs: controller.name,
     template,
     bindToController: true
-  }
-}
+  };
+};
 
 export {userFormComponent};
