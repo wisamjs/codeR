@@ -1,7 +1,8 @@
 'use strict';
 
 class userFormController{
-  constructor(){
+  constructor(candidateService){
+    this.candidateService = candidateService;
     this.project = {
       name: '',
       requirements: '',
