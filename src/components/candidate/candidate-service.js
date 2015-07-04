@@ -1,44 +1,67 @@
-let candidateService = ($http) => {
-  const API_URL = 'http://localhost:3000/';
+let candidateService = ($http, $q, localStorageService) => {
+  const API_URL = 'http://localhost:3000/api/people';
+  let candidates = [];
   let usedIDs = [];
+  let nextID = 0;
 
   let isUsed = (num) => {
     return usedIDs.indexOf(num) !== -1;
   };
 
   let allUsed = () => {
-    return usedIDs.length === 30;
+    return usedIDs.length === 26;
   };
 
   let clearUsed = () => {
     usedIDs.length = 0;
   };
 
-  let getRandomID = () => {
-    let num = Math.floor(Math.random() * 30);
+  let getChosenSkills = () => {
+    return localStorageService.get('project').labels;
 
-    if (!isUsed(num) && !allUsed()) {
-      usedIDs.push(num);
-      return num;
-    } else if (!allUsed()) {
-      return getRandomID();
-    } else {
-      clearUsed();
-      return getRandomID();
+  }
 
-    }
+  let saveCandidates = (res) => {
 
-  };
+    clearUsed();
+    candidates = res.data;
+    return res;
 
-  return {
-    getCandidate() {
-      let randomID = getRandomID();
-      return $http.get(API_URL + randomID);
-    }
+  }
 
-  };
+  let getAllCandidates = () => {
+      let skills = getChosenSkills();
+      console.log(skills);
+      return $http({
+        url: API_URL,
+        method: 'GET',
+        params: {skills: skills}
+      })
+  }
+
+  let getNextCandidate = () => {
+
+    let candidate = candidates[nextID];
+    nextID++;
+    return $q.when(candidate);
+
+  }
+
+  let getCandidate = () => {
+    if (candidates.length > 0){
+      return getNextCandidate();
+
+
+    }else{
+    return getAllCandidates()
+      .then(saveCandidates)
+      .then(getNextCandidate)
+      }
+  }
+
+  return {getCandidate};
 };
 
-candidateService.inject = ['$http'];
+candidateService.inject = ['$http', '$q', 'localStorageService'];
 
 export {candidateService};

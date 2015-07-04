@@ -18,13 +18,12 @@ class candidateController{
   getCandidate(){
     this.candidateService.getCandidate()
     .then((res) => {
-      this.user = res.data;
-      this.showLabels = this.user.skills.join(' ');
+      this.user = res;
     });
 
   }
 }
 
-candidateController.inject = ['candidate-service'];
+candidateController.inject = ['candidateService'];
 
 export {candidateController};
