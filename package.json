@@ -24,7 +24,6 @@
     "istanbul-instrumenter-loader": "^0.1.2",
     "karma": "^0.12.37",
     "karma-chai": "^0.1.0",
-    "karma-chai-sinon": "^0.1.5",
     "karma-chrome-launcher": "^0.2.0",
     "karma-coverage": "^0.4.2",
     "karma-mocha": "^0.2.0",
@@ -49,7 +48,8 @@
   "scripts": {
     "start": "gulp dev",
     "postuninstall": "bower install",
-    "test": "node ./node_modules/karma/bin/karma start --single-run --browsers PhantomJS"
+    "test": "node ./node_modules/karma/bin/karma start --single-run --browsers PhantomJS",
+    "test-watch": "node ./node_modules/karma/bin/karma start --browsers PhantomJS"
   },
   "repository": {
     "type": "git",

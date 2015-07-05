@@ -5,18 +5,15 @@ module.exports = function(config) {
   config.set({
 
     files: [
-      // all files ending in "test"
-      'src/components/candidate/candidate-service.test.js'
-      // each file acts as entry point for the webpack configuration
+      'bower_components/angular/angular.js',
+      'bower_components/angular-mocks/angular-mocks.js',
+      'src/core/local-storage-service.test.js'
     ],
 
-    // frameworks to use
-    frameworks: ['chai', 'mocha'],
+    frameworks: ['sinon', 'chai', 'mocha'],
 
     preprocessors: {
-      // only specify one entry point
-      // and require all tests in there
-      'src/components/candidate/candidate-service.test.js': ['webpack']
+      'src/**/*.test.js': ['webpack']
     },
 
     reporters: ['spec', 'coverage'],
@@ -27,7 +24,6 @@ module.exports = function(config) {
     },
 
     webpack: {
-      // webpack configuration
       module: {
         loaders: [
           {test: /\.js$/, loader: 'babel-loader', exclude: excludeDirs},
@@ -50,13 +46,13 @@ module.exports = function(config) {
     },
 
     webpackMiddleware: {
-      // webpack-dev-middleware configuration
       noInfo: true
     },
 
     plugins: [
       require("karma-webpack"),
       require("karma-chai"),
+      require('karma-sinon'),
       require("istanbul-instrumenter-loader"),
       require("karma-mocha"),
       require("karma-coverage"),
