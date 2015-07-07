@@ -8,17 +8,13 @@ import candidateTemplate from './sections/candidates/candidates.html';
 import homeTemplate from './sections/home/home.html';
 import {userFormModule, candidateModule} from './components/components';
 import {coreModule} from './core/core';
-
-angular.module('3rdParty', [])
-.factory('R',function(){
-  return R;
-})
+import {thirdPartyModule} from './components/third-party/thirdParty';
 
 
 angular
   .module('app', [
     'ionic',
-    '3rdParty',
+    thirdPartyModule.name,
     userFormModule.name,
     coreModule.name,
     candidateModule.name

@@ -1,8 +1,13 @@
-import {candidateComponent} from './candidate-component';
-import {candidateService} from './candidate-service';
+import {candidateDirectiveModule} from './candidate-directive';
+import {candidateServiceModule} from './candidate-service';
+
+
 let candidateModule =
-  angular.module('candidate', [])
-  .directive('candidate', candidateComponent)
-  .factory('candidateService', candidateService);
+  angular.module('candidate', [
+    candidateDirectiveModule.name,
+    candidateServiceModule.name
+    ]);
+
+
 
   export {candidateModule};

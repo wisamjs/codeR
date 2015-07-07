@@ -2,7 +2,8 @@ import './candidate.scss';
 import template from './candidate.html';
 import {candidateController as controller} from './candidate-controller';
 
-let candidateComponent = () => {
+let candidateDirectiveModule = angular.module('candidate-controller', [])
+  .directive('candidate', () => {
   return {
     restrict: 'E',
     controller,
@@ -11,6 +12,6 @@ let candidateComponent = () => {
     template
   };
 
-};
+});
 
-export {candidateComponent};
+export {candidateDirectiveModule};

@@ -7,7 +7,7 @@ module.exports = function(config) {
     files: [
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
-      'src/core/local-storage-service.test.js'
+      'src/**/*.test.js'
     ],
 
     frameworks: ['sinon', 'chai', 'mocha'],
