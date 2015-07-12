@@ -1,3 +1,5 @@
+import R from 'Ramda';
+
 let thirdPartyModule = angular.module('3rdParty', [])
 .factory('R', function(){
   return R;

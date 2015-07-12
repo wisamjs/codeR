@@ -2,7 +2,9 @@
   "name": "coder",
   "version": "1.0.0",
   "description": "codeR: An Ionic project",
-  "dependencies": {},
+  "dependencies": {
+    "flux": "^2.0.3"
+  },
   "devDependencies": {
     "babel-eslint": "^3.1.19",
     "babel-loader": "^5.2.2",

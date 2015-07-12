@@ -1,8 +1,12 @@
 class candidateController{
-  constructor(candidateService){
+  constructor(candidateService, candidateStore, candidateActions){
     this.candidateService = candidateService;
+    this.candidateStore = candidateStore;
+    this.candidateActions = candidateActions;
     this.getCandidate();
+    this.candidateStore.register();
   }
+
 
   addCandidate(){
     //TODO
@@ -12,6 +16,7 @@ class candidateController{
 
   skipCandidate(){
     this.getCandidate();
+    this.candidateActions.updateCandidate();
 
   }
 

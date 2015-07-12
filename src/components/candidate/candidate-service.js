@@ -1,10 +1,11 @@
 let candidateServiceModule = angular.module('candidate-service', [])
-  .factory('candidateService', ($http, $q, localStorageService, R) => {
+  .factory('candidateService', ($http, $q, localStorageService, R, Dispatcher) => {
     const API_URL = 'http://localhost:3000/api/people';
     let candidates = [];
     let usedIDs = [];
     let nextID = 0;
     let skills = [];
+
 
     let clearUsed = () => {
       usedIDs.length = 0;
